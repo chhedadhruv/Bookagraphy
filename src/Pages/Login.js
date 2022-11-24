@@ -3,14 +3,29 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Stylesheets/Login.css";
 import { FcGoogle } from "react-icons/fc";
 import { auth, provider } from "../firebase";
-import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
 
 function Login({ setIsAuth }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
   const signInWithGoogle = () => {
-    signInWithPopup(auth, provider).then(() => {
+    signInWithPopup(auth, provider).then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
       localStorage.setItem("isAuth", true);
       setIsAuth(true);
       navigate("/");
