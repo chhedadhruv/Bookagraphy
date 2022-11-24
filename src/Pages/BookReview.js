@@ -13,10 +13,12 @@ function BookReview({ isAuth }) {
   const [amazonlink, setAmazonLink] = useState("");
   const [flipkartlink, setFlipkartLink] = useState("");
   const reviewscollection = collection(db, "reviews");
-  let navigate = useNavigate();
+  let navigate = useNavigate({});
   const addReview = async () => {
     await addDoc(reviewscollection, { bookname, reviewername, reviewtext, bookimage, amazonlink, flipkartlink });
-    navigate("/");
+      localStorage.setItem("isAuth", true);
+      // setIsAuth(true);
+      navigate("/");
   };
 
   useEffect(() => {

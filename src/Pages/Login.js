@@ -9,6 +9,8 @@ function Login({ setIsAuth }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
+  // if website is used in desktop, then it will open google popup for login
+  
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -16,6 +18,9 @@ function Login({ setIsAuth }) {
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
+    localStorage.setItem("isAuth", true);
+      setIsAuth(true);
+      navigate("/");
     // ...
   }).catch((error) => {
     // Handle Errors here.
@@ -26,9 +31,6 @@ function Login({ setIsAuth }) {
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
-      localStorage.setItem("isAuth", true);
-      setIsAuth(true);
-      navigate("/");
     });
   };
   const signin = () => {
