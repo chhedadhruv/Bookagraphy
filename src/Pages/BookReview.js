@@ -29,7 +29,7 @@ function BookReview({ isAuth }) {
   return (
     <>
       <div className='main' style={{}}>
-        <div className='box' style={{position:'fixed', top:100, overflow:'auto'}}>
+        <div className='box reviewbox' style={{position:'fixed', top:100, overflow:'auto'}}>
           <h1>Write A Book Review</h1>
           <form>
             <div className='form-control'>
