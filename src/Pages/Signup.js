@@ -17,6 +17,9 @@ function Signup({ setIsAuth }) {
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
+    localStorage.setItem("isAuth", true);
+      setIsAuth(true);
+      navigate("/");
     // ...
   }).catch((error) => {
     // Handle Errors here.
