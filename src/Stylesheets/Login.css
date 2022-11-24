@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  box-sizing: border-box;
+}
+.main {
+  width: 100%;
+  font-family: "Muli", sans-serif;
+  background-color: #4c6c82;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.box {
+  background-color: #393e467d;
+  padding: 20px 40px;
+  border-radius: 5px;
+  height: 500px;
+}
+.box h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.box .a {
+  text-decoration: none;
+  color: lightblue;
+}
+.signinbutton {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background: lightblue;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+}
+.signinbutton:hover {
+  outline: 0;
+  background-color: #4c6c82;
+}
+.signinbutton:active {
+  transform: scale(4px);
+}
+.text {
+  margin-top: 30px;
+}
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 300px;
+  border-radius: 10px;
+}
+.form-control input, .form-control textarea {
+  /* background-color: transparent; */
+  border: 0;
+  /* border-bottom: 2px solid #fff; */
+  display: block;
+  width: 100%;
+  /* padding: 15px 0; */
+  font-size: 18px;
+  /* color: #fff; */
+  border-radius: 10px;
+}
+.form-control input:focus,
+.form-control textarea:focus,
+.form-control input:valid
+.form-control textarea:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.form-control input:focus + label span,
+.form-control textarea:focus + label span,
+.form-control input:valid + label span,
+.form-control textarea:valid + label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
+.googlelogo {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 475px) {
+  .box {
+    height: 400px;
+  }
+  .bigbox {
+    height: 500px;
+  }
+}
